@@ -1,0 +1,36 @@
+name: Sistema de Construção
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Configurar Java 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+          cache: maven
+          cache-dependency-path: entrega-2/pom.xml
+      - name: Compilar, testar, empacotar e documentar
+        run: mvn -B -f entrega-2/pom.xml clean verify javadoc:javadoc
+      - name: Publicar JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: sistema-executavel
+          path: entrega-2/target/sistema-construcao-1.0.0.jar
+      - name: Publicar relatórios
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-testes
+          path: entrega-2/target/surefire-reports/
+      - name: Publicar Javadoc
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentacao-javadoc
+          path: entrega-2/target/site/apidocs/
