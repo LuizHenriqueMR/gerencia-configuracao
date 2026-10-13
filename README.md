@@ -1,42 +1,39 @@
 # Gerência de Configuração — Entregas 1 a 4
 
-**Integrantes:** Luis Fernando, Luiz Henrique M Rodrigues e Regyane Tavares.
+Trabalho acadêmico organizado de acordo com as quatro atividades propostas.
 
-Projeto acadêmico centralizado neste repositório. As quatro entregas estão documentadas aqui, sem necessidade de consultar outro repositório.
+## Entregas
 
-## Navegação
+| Atividade | Prazo | Onde consultar |
+|---|---|---|
+| **Entrega 1 — Git** | 17/09 | [Conceitos e comandos de controle de versão](entrega-1/README.md) |
+| **Entrega 2 — GitHub Actions** | 01/10 | [Sistema de construção Java/Maven](entrega-2/README.md) e [workflow](.github/workflows/build.yml) |
+| **Entrega 3 — GitHub Issues** | 08/10 | [Organização das issues e releases](entrega-3/ISSUES_E_RELEASES.md), [issues cadastradas](../../issues) e GitHub Project |
+| **Entrega 4 — Seminário** | 08/10 e 15/10 | [Papéis, integração das tarefas e diagrama de atividades](entrega-4/PROCESSO.md) |
 
-| Entrega | Evidências neste repositório |
-|---|---|
-| [1 — Git](entrega-1/README.md) | 12 conceitos, exemplos e comandos Git |
-| [2 — GitHub Actions](entrega-2/README.md) | Projeto Java Maven, testes, JAR, relatórios e Javadoc |
-| [3 — Issues](entrega-3/ISSUES_E_RELEASES.md) | [Issues #1 a #5](../../issues) e duas releases no GitHub Project |
-| [4 — Processo](entrega-4/PROCESSO.md) | Papéis e diagrama de atividades com raias |
+## Entrega 1 — Git
+O arquivo `entrega-1/README.md` apresenta os termos dos slides 10 e 11 e explica como usar comandos de controle de versão para cada um.
 
-## Sistema web de exemplo
-O diretório [sistema-web](sistema-web) contém HTML e CSS, associados à issue #1.
+## Entrega 2 — Sistema de construção
+O projeto Java em `entrega-2/` contém código-fonte, testes, `pom.xml` e scripts de construção para Windows e Linux. O GitHub Actions compila, executa testes, gera um JAR, publica relatórios e documentação.
 
-## Entrega 2 — Execução
-O workflow [Sistema de Construção](.github/workflows/build.yml) é acionado por push ou pull request na main. Ele utiliza Maven para compilar apenas o que precisa em builds incrementais locais, executar testes, gerar JAR executável, relatórios Surefire e documentação Javadoc. No CI, a opção `clean` garante uma construção reproduzível a partir de zero.
-
-Para executar localmente, com Java e Maven instalados:
-
+**Executar na raiz do repositório (Java e Maven instalados):**
 ```bash
 mvn -f entrega-2/pom.xml clean verify javadoc:javadoc
 java -jar entrega-2/target/sistema-construcao-1.0.0.jar
 ```
 
-**Evidência de execução bem-sucedida:** [GitHub Actions — execução #1](../../actions/runs/38477334046).
+[Consultar execução aprovada do GitHub Actions](../../actions/runs/38477334046).
 
-## Organização do trabalho
-**Release 1:** #1 estrutura do sistema, #2 controle de versão, #3 script de construção.
-**Release 2:** #4 GitHub Actions, #5 documentação e validação.
+## Entrega 3 — Issues
+As cinco issues do trabalho estão cadastradas no GitHub e organizadas em dois grupos de release no Project:
+- **Release 1:** issues #1, #2 e #3.
+- **Release 2:** issues #4 e #5.
 
-Os responsáveis estão registrados no campo **Papel responsável** do GitHub Project. O processo completo e o diagrama estão na [Entrega 4](entrega-4/PROCESSO.md).
+O campo de release do Project serve para organizar o planejamento; não deve ser confundido com uma release publicada na aba Releases do repositório.
 
-## Apresentação
-- **Luis Fernando:** introdução breve e demonstração deste repositório no GitHub.
-- **Luiz Henrique:** Entregas 1 e 2 usando o PDF.
-- **Regyane Tavares:** Entregas 3 e 4 usando o PDF.
+## Entrega 4 — Seminário
+O processo, os papéis responsáveis por cada tarefa e o diagrama de atividades com raias estão em `entrega-4/PROCESSO.md`. A apresentação em PDF pode ser usada no seminário e enviada separadamente pelo Moodle.
 
-O [roteiro](docs/ROTEIRO.md) detalha a divisão. 
+## Arquivos de apoio
+A pasta `sistema-web/` contém o exemplo relacionado à issue #1. Ela foi mantida para preservar a evidência da tarefa, embora o sistema de construção automatizado utilize o projeto Java da Entrega 2.
